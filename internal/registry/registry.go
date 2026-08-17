@@ -240,7 +240,7 @@ func (r *Registry) HostsForPort(port int) ([]string, bool) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
-	var hosts []string
+	hosts := make([]string, 0)
 	for h, history := range r.hosts {
 		if len(history) == 0 {
 			continue
